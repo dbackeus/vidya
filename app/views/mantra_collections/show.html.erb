@@ -1,10 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @mantra_collection.title %>
-</p>
+<h1><%= @mantra_collection.title %></h1>
 
+<ol>
+  <% @mantra_collection.mantras.each do |mantra| %>
+    <li class="mantra">
+      <p class="mantra"><%= mantra.original %></p>
+      <p class="translation"><%= mantra.english %></p>
+    </li>
+  <% end %>
+</ol>
 
 <%= link_to 'Edit', edit_mantra_collection_path(@mantra_collection) %> |
-<%= link_to 'Back', mantra_collections_path %>
+<%= link_to 'Back to Mantra Collection list', mantra_collections_path %>
