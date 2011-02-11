@@ -1,0 +1,45 @@
+<script type="text/javascript" charset="utf-8">
+  function addMantra() {
+    var li = $("li.mantra:first").clone()
+    var timestamp = new Date().valueOf()
+    
+    $.each(li.find("input"), function(i, input) {
+      input = $(input)
+      var name = input.attr("name")
+      input.attr("name", name.split("0").join(timestamp))
+      input.attr("value", "")
+    })
+    
+    $("ol.mantras").append(li)
+    
+    li.find("input:first").focus()
+    var last = li.find("input:last")
+    last.blur(function() {
+      addMantra()
+      last.unbind()
+    })
+  }
+</script>
+
+<%= simple_form_for(@mantra_collection) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="inputs">
+    <%= f.input :title %>
+  </div>
+  
+  <ol class="mantras">
+    <%= f.fields_for :mantras do |mantra| %>
+      <li class="mantra">
+        <%= mantra.input :original %>
+        <%= mantra.input :english %>
+      </li>
+    <% end %>
+  </ol>
+  
+  <%= link_to_function "Add mantra", "addMantra()" %>
+
+  <div class="actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
