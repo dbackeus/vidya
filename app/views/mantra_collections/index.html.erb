@@ -1,23 +1,13 @@
-<h1>Listing mantra_collections</h1>
+<h1>Mantras</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<ul>
+  <% @mantra_collections.each do |mantra_collection| %>
+    <li class="mantra">
+      <h2><%= link_to mantra_collection.title, mantra_collection %></h2>
+      <%= link_to 'Edit', edit_mantra_collection_path(mantra_collection) %>
+      <%= link_to 'Destroy', mantra_collection, :confirm => 'Are you sure?', :method => :delete %>
+    </li>
+  <% end %>
+</ul>
 
-<% @mantra_collections.each do |mantra_collection| %>
-  <tr>
-    <td><%= mantra_collection.title %></td>
-    <td><%= link_to 'Show', mantra_collection %></td>
-    <td><%= link_to 'Edit', edit_mantra_collection_path(mantra_collection) %></td>
-    <td><%= link_to 'Destroy', mantra_collection, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Mantra collection', new_mantra_collection_path %>
+<%= link_to 'Add Mantra collection', new_mantra_collection_path %>

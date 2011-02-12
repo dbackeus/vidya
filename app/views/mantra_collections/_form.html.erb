@@ -28,16 +28,16 @@
     <%= f.input :title %>
   </div>
   
-  <ol class="mantras">
+  <ol class="mantras numbered">
     <%= f.fields_for :mantras do |mantra| %>
       <li class="mantra">
-        <%= mantra.input :original %>
+        <%= mantra.input :original, :required => false %>
         <%= mantra.input :english %>
       </li>
     <% end %>
   </ol>
   
-  <%= link_to_function "Add mantra", "addMantra()" %>
+  <p><%= link_to_function "Add mantra", "addMantra()" %></p>
 
   <div class="actions">
     <%= f.button :submit %>
