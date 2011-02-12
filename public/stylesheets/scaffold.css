@@ -9,7 +9,8 @@ body {
 }
 
 div.site {
-  margin: 40px auto 0 auto;
+  margin: 1.2em auto 0 auto;
+  padding: 20px;
   width: 600px;
 }
 
@@ -31,13 +32,14 @@ p {
 p.mantra {
   font-family: Georgia;
   font-size: 2em;
-  margin-bottom: 0;
+  margin-bottom: 0.1em;
   color: #333;
 }
 
 p.translation {
   font-style: italic;
   color: #666;
+  line-height: 1.4em;
 }
 
 ol.numbered {
@@ -66,8 +68,11 @@ div.field, div.actions {
   display: table;
 }
 
-@media screen and (max-width: 600px) {
-  div.site {
-    width: 440px;
-  }
+@media screen and (max-width: 980px) {
+  div.site { width: 90%; }
+  body { font-size: 120%; }
+}
+
+@media screen and (max-width: 480px) {
+  body { font-size: 100%; }
 }
