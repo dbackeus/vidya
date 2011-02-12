@@ -9,6 +9,6 @@ class Mantra
   validates_presence_of :original
   
   def original=(sanskrit)
-    write_attribute(:original, sanskrit.gsub("AA", "Ā").gsub("aa", "ā").gsub("II", "Ī").gsub("ii", "ī").gsub("UU", "Ū").gsub("uu", "ū").gsub("NN", "Ñ").gsub("nn", "ñ").gsub("NNN", "Ṅ").gsub("nnn", "ṅ"))
+    write_attribute(:original, sanskrit.gsub("AA", "Ā").gsub("aa", "ā").gsub("II", "Ī").gsub("ii", "ī").gsub("UU", "Ū").gsub("uu", "ū").gsub("NNN", "Ṅ").gsub("nnn", "ṅ"))
   end
 end
