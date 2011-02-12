@@ -25,6 +25,7 @@ class MantraCollectionsController < ApplicationController
   # GET /mantra_collections/new.xml
   def new
     @mantra_collection = MantraCollection.new
+    @mantra_collection.mantras.build if @mantra_collection.mantras.empty?
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +36,7 @@ class MantraCollectionsController < ApplicationController
   # GET /mantra_collections/1/edit
   def edit
     @mantra_collection = MantraCollection.find(params[:id])
+    @mantra_collection.mantras.build if @mantra_collection.mantras.empty?
   end
 
   # POST /mantra_collections
