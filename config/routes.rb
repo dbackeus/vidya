@@ -1,5 +1,7 @@
 Vidya::Application.routes.draw do
   resources :mantra_collections
+  
+  root :to => "mantra_collections#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
